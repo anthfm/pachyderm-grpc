@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "empty.proto";
+import "timestamp.proto";
+import "wrappers.proto";
+import "gogo.proto";
+
+package pfs;
+option go_package = "github.com/pachyderm/pachyderm/src/client/pfs";
+
+
+message Repo {
+  string name = 1;
+}
+
+
+message RepoInfo {
+  reserved 4;
+  Repo repo = 1;
+
+}
+
+
+message ListRepoResponse {
+  repeated RepoInfo repo_info = 1;
+}
+
+
+message ListRepoRequest {
+  reserved 1;
+}
+
+
+
+service API {
+  rpc ListRepo(ListRepoRequest) returns (ListRepoResponse) {}
+}
