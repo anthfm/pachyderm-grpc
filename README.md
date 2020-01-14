@@ -1,8 +1,6 @@
-> gRPC/Node.js + Pachydeerm
 
-## Instructions to run
 
-Install gRPC dependencies,
+Install gRPC,
 ```sh
 $ npm install
 ```
