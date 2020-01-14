@@ -8,7 +8,7 @@ $ npm install
 Start server, 
 ```sh
 $ node server.js
-GRPC server is running on 50051
+GRPC server is running on 30650
 ```
 
 Test the server by invoking the client script.
