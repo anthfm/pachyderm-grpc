@@ -21,6 +21,6 @@ server.addService(proto.pps.API.service, {
   }
 })
 
-server.bind(`192.168.64.8:${PORT}`, grpc.ServerCredentials.createInsecure())
+server.bind(`0.0.0.0:${PORT}`, grpc.ServerCredentials.createInsecure())
 server.start()
 console.log(`GRPC server is running on ${PORT}`)
