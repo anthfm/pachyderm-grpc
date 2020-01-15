@@ -6,7 +6,7 @@ const protoLoader = require('@grpc/proto-loader')
 const packageDefinition = protoLoader.loadSync('pps.proto');
 const proto = grpc.loadPackageDefinition(packageDefinition);
 
-const client = new proto.pps.API('192.168.64.8:30650', grpc.credentials.createInsecure())
+const client = new proto.pps.API('0.0.0.0:30650', grpc.credentials.createInsecure())
 
 let request = {
 	'pipeline': {
@@ -36,7 +36,8 @@ let request = {
    },
 
         
-    'update': false
+    'update': true,
+    'reprocess': true
 }
 
 client.CreatePipeline(request, (error, response) => {
