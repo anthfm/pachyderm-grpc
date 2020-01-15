@@ -36,6 +36,8 @@ message CreatePipelineRequest {
   Input input = 13;
   Pipeline pipeline = 1;
   Transform transform = 2;
+  bool update = 5;
+  bool reprocess = 18;
 }
 
 service API {
