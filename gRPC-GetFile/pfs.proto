@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "empty.proto";
+import "timestamp.proto";
+import "wrappers.proto";
+import "gogo.proto";
+
+package pfs;
+
+option go_package = "github.com/pachyderm/pachyderm/src/client/pfs";
+
+
+message Repo {
+  string name = 1;
+}
+
+
+message Commit {
+  Repo repo = 1;
+  string id = 2 [(gogoproto.customname) = "ID"];
+}
+
+
+message File {
+  Commit commit = 1;
+  string path = 2;
+}
+
+
+message GetFileRequest {
+  File file = 1;
+  int64 offset_bytes = 2;
+  int64 size_bytes = 3;
+}
+
+
+service API {
+  rpc GetFile(GetFileRequest) returns (google.protobuf.BytesValue) {}
+}
